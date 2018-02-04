@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block head %}
+                <title>Profile</title>
+{% endblock %}
+
+
+{% block body %}
+
+    <h1>Profile</h1>
+    {{ user }}
+    <div class="container">
+    <p>User: {{ user }}</p>
+    <p>First Name: {{ user.first_name }}</p>
+    <p>last name: {{ user.last_name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Description: {{ user.description }}</p>
+    <p>Phone: {{ user.phone }}</p>
+    <p>City: {{ user.city }}</p>
+    <p>Web Site: {{ user.website }}</p>
+    <p>Pic: {{ user.image }}</p>
+    </div>
+
+{% endblock %}
