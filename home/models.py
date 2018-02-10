@@ -6,4 +6,5 @@ from django.contrib.auth.models import User
 
 class Post(models.Model):
     post = models.CharField(max_length=200)
+    date = models.DateTimeField(auto_now=True)
     user = models.ForeignKey(User)

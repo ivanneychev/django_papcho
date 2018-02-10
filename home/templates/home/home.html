@@ -16,6 +16,11 @@
                 <button type="submit">Submit</button>
 
                 <h2>{{ text }}</h2>
+                {% for post in posts %}
+                    <h3>{{ post.post }}</h3>
+                    <ul>Posted by {{ post.user }} on {{ post.date }}</ul>
+                {% endfor %}
+
 
             </form>
         </div>
