@@ -8,14 +8,17 @@ class HomeView(TemplateView):
     template_name = 'home/home.html'
 
     def get(self, request):
-        form = HomeForm
+        form = HomeForm()
         return render(request, self.template_name, {'form': form})
 
     def post(self, request):
         form = HomeForm(request.POST)
         if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
             text = form.cleaned_data['post']
-            return redirect('home:home')
+            post = form.save()
 
-        args = {'form': form, 'text': text}
-        return render(request, self.template_name, args)
+            args = {'form': form, 'text': text}
+            return render(request, self.template_name, args)
+        return redirect('home:home')
