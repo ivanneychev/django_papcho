@@ -3,7 +3,12 @@ from home.models import Post
 
 
 class HomeForm(forms.ModelForm):
-    post = forms.CharField(max_length=200)
+    post = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'class': 'form-control',
+            'placeholder': 'Please write post ...'
+        }
+    ))
 
     class Meta:
         model = Post

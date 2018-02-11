@@ -12,7 +12,9 @@
         <h1>home base</h1>
             <form method="post">
                 {% csrf_token %}
-                {{ form.as_p }}
+                {{ form.error }}
+                {{ form.post }}
+                <br>
                 <button type="submit">Submit</button>
 
                 <h2>{{ text }}</h2>
