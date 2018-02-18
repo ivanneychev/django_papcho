@@ -20,11 +20,11 @@ class Friend(models.Model):
         friend, created = cls.objects.get_or_create(
             current_user=current_user
         )
-        friend.user.add(new_friend)
+        friend.users.add(new_friend)
 
     @classmethod
     def lose_friend(cls, current_user, new_friend):
         friend, created = cls.objects.get_or_create(
             current_user=current_user
         )
-        friend.user.remove(new_friend)
+        friend.users.remove(new_friend)
